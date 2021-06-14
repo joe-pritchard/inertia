@@ -52,26 +52,26 @@ export type LocationVisit = {
 }
 
 export type Visit = {
-  method: Method,
-  data: Record<string, FormDataConvertible>|FormData,
-  replace: boolean,
-  preserveScroll: PreserveStateOption,
-  preserveState: PreserveStateOption,
-  only: Array<string>,
-  headers: Record<string, string>
-  errorBag: string|null,
-  forceFormData: boolean,
+  method?: Method,
+  data?: Record<string, FormDataConvertible>|FormData,
+  replace?: boolean,
+  preserveScroll?: PreserveStateOption,
+  preserveState?: PreserveStateOption,
+  only?: Array<string>,
+  headers?: Record<string, string>
+  errorBag?: string|null,
+  forceFormData?: boolean,
 }
 
 export type VisitOptions = Visit & {
-  onCancelToken: { ({ cancel }: { cancel: VoidFunction }): void },
-  onBefore: (visit: PendingVisit) => boolean|void,
-  onStart: (visit: PendingVisit) => void,
-  onProgress: (progress: { percentage: number }|void) => void,
-  onFinish: (visit: ActiveVisit) => void,
-  onCancel: () => void,
-  onSuccess: (page: Page) => void,
-  onError: (errors: Errors) => void,
+  onCancelToken?: { ({ cancel }: { cancel: VoidFunction }): void },
+  onBefore?: (visit: PendingVisit) => boolean|void,
+  onStart?: (visit: PendingVisit) => void,
+  onProgress?: (progress: { percentage: number }|void) => void,
+  onFinish?: (visit: ActiveVisit) => void,
+  onCancel?: () => void,
+  onSuccess?: (page: Page) => void,
+  onError?: (errors: Errors) => void,
 }
 
 export type PendingVisit = Visit & {
